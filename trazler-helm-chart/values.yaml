@@ -1,0 +1,33 @@
+replicaCount: 1
+clusterRole:
+  name: trazler-serviceaccount-role
+  apiGroups: [""]
+  resources: ["*"]
+  verbs: ["*"]
+
+clusteRoleBinding:
+  name: trazler-serviceaccount-rolebinding
+
+image:
+  trazler:
+    repository: nginx
+    name: trazler
+    tagName: "${tagName}"
+    imagePullPolicy: Never
+    
+serviceAccount:
+  create: true
+  name: trazler-serviceaccount
+
+
+service:
+  type: NodePort
+  port: 80
+  targetPort: 80
+  nodePort: 30082
+
+ingress:
+  name: trazler-ingress
+  host: trazler.info
+  path: /
+  pathType: Prefix

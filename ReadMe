@@ -1,0 +1,18 @@
+The instruction works only for minikube setup:
+
+Execute the following commands:
+
+sudo chmod +x ./install.sh
+sudo ./install.sh  
+
+Pass the:
+1. Workspace for terraform
+2. 'Tag' you want to use for the docker image.
+3. The 'release name' for your helm application
+
+After the script execution you can also  access the website with the following URL  ---> trazler.info:<port-number-given-by-minikube>
+
+To destroy:
+
+cd terraform 
+terraform destroy -auto-approve
